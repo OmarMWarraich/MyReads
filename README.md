@@ -1,6 +1,6 @@
 # MyReads App
 
-Bootstrapped with [Create React App](https://github.com/facebook/create-react-app), this is an app that categorizes books in three categories for the user making use of an API provided by Udacity. 
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app), this is an app that categorizes books in following three categories for the user making use of an API provided by Udacity. 
 * Currently Reading
 * Want to Read
 * Read
