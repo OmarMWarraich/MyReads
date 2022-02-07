@@ -6,10 +6,10 @@ import BookShelf from "./BookShelf";
 /** @description: BookList Component */
 
 class BookList extends React.Component {
-    state = {};
+  state = {};
 
-/** @function: Filter the books as per shelf*/
-updateShelf = (bookId, event) => {
+  /** @function: Filter the books as per shelf*/
+  updateShelf = (bookId, event) => {
     let currentBooks = this.props.currentBooks;
     const book = currentBooks.filter((book) => book.id === bookId)[0];
     book.shelf = event.target.value;
@@ -23,7 +23,7 @@ updateShelf = (bookId, event) => {
   render() {
     return (
       <div>
-        <div className="bg-blue-400 py-3 px-0 text-center">
+        <div className="bg-yellow-400 py-3 px-0 text-center">
           <h1 className="m-0 text-4xl font-medium text-white">MyReads</h1>
         </div>
 
@@ -56,7 +56,7 @@ updateShelf = (bookId, event) => {
         </div>
         <div
           className="w-50 h-50 fixed right-20 bottom-20 block 
-                            rounded-full bg-blue-400 bg-[url('./icons/add.svg')] bg-auto bg-no-repeat shadow-lg "
+                            rounded-full bg-yellow-400 bg-[url('./icons/add.svg')] bg-auto bg-no-repeat shadow-lg "
         >
           <Link to="/search" className="text-white opacity-0">
             Add a

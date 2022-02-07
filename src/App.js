@@ -1,43 +1,43 @@
 // import { render } from '@testing-library/react';
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import * as BooksAPI from "./BooksAPI";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BookList from "./components/BookList";
+import BookSearch from "./components/BookSearch";
 
 /** @description Main App component. */
 
 class App extends Component {
   state = {
-    books: []
+    books: [],
   };
 
- /**
- *  @Lifecycle event handler called just after the app loads into the DOM.
- *  Call the API to get all the books.
- */
+  /**
+   *  @Lifecycle event handler called just after the app loads into the DOM.
+   *  Call the API to get all the books.
+   */
 
   componentDidMount() {
     this.updateData();
   }
-  
- /** Update to handle shelf change*/
+
+  /** Update to handle shelf change*/
 
   updateShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(response => {
+    BooksAPI.update(book, shelf).then((response) => {
       this.updateData();
-    })
-  }
+    });
+  };
 
   /** Update the book in the state*/
 
   updateData = () => {
-    BooksAPI.getAll().then(data => {
+    BooksAPI.getAll().then((data) => {
       this.setState({
-        books: data
-      })
+        books: data,
+      });
     });
-  }
-
+  };
 
   render() {
     return (
@@ -50,14 +50,21 @@ class App extends Component {
               path="/"
               element={<BookList currentBooks={this.state.books} />}
             />
-            
+            <Route
+              exact
+              path="/search"
+              element={
+                <BookSearch
+                  updateShelf={this.updateShelf}
+                  currentBooks={this.state.books}
+                />
+              }
+            />
           </Routes>
         </Router>
       </div>
     );
   }
-
-};
-
+}
 
 export default App;
